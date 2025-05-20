@@ -1,91 +1,69 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página con Contador y Fondo</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-            background-image: url('');
-            background-size: cover;
-            background-position: center;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #fff;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            backdrop-filter: blur(1px) brightness(0.8);
-        }
-        .container {
-            background: rgba(0,0,0,0.5);
-            border-radius: 20px;
-            padding: 2rem 3rem;
-            box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
-            text-align: center;
-        }
-        h1 {
-            margin-bottom: 1rem;
-        }
-        .contador {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            font-weight: bold;
-            letter-spacing: 2px;
-        }
-        .boton {
-            padding: 0.75rem 2rem;
-            font-size: 1.1rem;
-            border: none;
-            border-radius: 10px;
-            color: #fff;
-            background: linear-gradient(90deg, #ff512f 0%, #dd2476 100%);
-            cursor: pointer;
-            transition: background 0.2s;
-            margin-top: 1rem;
-            box-shadow: 0 4px 14px rgba(221,36,118,0.4);
-        }
-        .boton:hover {
-            background: linear-gradient(90deg, #dd2476 0%, #ff512f 100%);
-        }
-        .bg-url {
-            margin-top: 1.5rem;
-            font-size: 0.9rem;
-            color: #ffc0cb;
-            word-break: break-all;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Página con Contador y Fondo</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+    .container {
+      background: rgba(255,255,255,0.85);
+      border-radius: 20px;
+      padding: 40px 30px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+      text-align: center;
+    }
+    h1 {
+      margin-bottom: 10px;
+      color: #222;
+      letter-spacing: 1px;
+    }
+    .contador {
+      font-size: 2rem;
+      color: #1976d2;
+      margin: 25px 0;
+      font-weight: bold;
+    }
+    .boton {
+      display: inline-block;
+      padding: 12px 30px;
+      background: linear-gradient(90deg, #1976d2 40%, #64b5f6 100%);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      text-decoration: none;
+      margin-top: 15px;
+      box-shadow: 0 2px 8px rgba(25,118,210,0.15);
+    }
+    .boton:hover {
+      background: linear-gradient(90deg, #1565c0 0%, #1976d2 100%);
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Bienvenido a la Página</h1>
-        <div class="contador" id="contador">Cargando...</div>
-        <button class="boton" onclick="window.location.href='https://www.example.com'">Ir a otra página</button>
-        <div class="bg-url">
-            Fondo: <span id="bg-url"></span>
-        </div>
-    </div>
-    <script>
-        // URL de la imagen de fondo
-        const bgImageUrl = 'https://s0.smartresize.com/wallpaper/220/818/HD-wallpaper-the-verge-astronaut-epic-space-worlds-end.jpg';
-        document.getElementById('bg-url').textContent = bgImageUrl;
-
-        // Función para manejar el contador usando localStorage
-        function actualizarContador() {
-            let visitas = localStorage.getItem('contadorVisitas');
-            if (!visitas) {
-                visitas = 1;
-            } else {
-                visitas = parseInt(visitas, 10) + 1;
-            }
-            localStorage.setItem('contadorVisitas', visitas);
-            document.getElementById('contador').textContent = `Visitas: ${visitas}`;
-        }
-
-        actualizarContador();
-    </script>
+  <div class="container">
+    <h1>¡Bienvenido/a!</h1>
+    <div class="contador" id="contador"></div>
+    <a href="https://www.ejemplo.com" class="boton">Ir a otra página</a>
+  </div>
+  <script>
+    // Usar localStorage para el contador de visitas (por navegador)
+    let visitas = localStorage.getItem('contadorVisitas') || 0;
+    visitas++;
+    localStorage.setItem('contadorVisitas', visitas);
+    document.getElementById('contador').textContent = `Visitas: ${visitas}`;
+  </script>
 </body>
 </html>
