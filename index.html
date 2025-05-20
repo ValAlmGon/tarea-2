@@ -1,23 +1,91 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Página con Imagen, Música y Contador Estético</title>
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página con Contador y Fondo</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(1px) brightness(0.8);
+        }
+        .container {
+            background: rgba(0,0,0,0.5);
+            border-radius: 20px;
+            padding: 2rem 3rem;
+            box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 1rem;
+        }
+        .contador {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+        .boton {
+            padding: 0.75rem 2rem;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            background: linear-gradient(90deg, #ff512f 0%, #dd2476 100%);
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 1rem;
+            box-shadow: 0 4px 14px rgba(221,36,118,0.4);
+        }
+        .boton:hover {
+            background: linear-gradient(90deg, #dd2476 0%, #ff512f 100%);
+        }
+        .bg-url {
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: #ffc0cb;
+            word-break: break-all;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <img id="main-image" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="Imagen principal" />
-    <audio id="main-audio" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" autoplay loop></audio>
-    <div class="counter-box">
-      <span id="counter">0</span>
-      <span class="counter-label">Visitas</span>
+    <div class="container">
+        <h1>Bienvenido a la Página</h1>
+        <div class="contador" id="contador">Cargando...</div>
+        <button class="boton" onclick="window.location.href='https://www.example.com'">Ir a otra página</button>
+        <div class="bg-url">
+            Fondo: <span id="bg-url"></span>
+        </div>
     </div>
-    <button class="navigate-btn" onclick="window.location.href='https://www.example.com'">
-      Ir a otra página
-    </button>
-  </div>
-  <script src="script.js"></script>
+    <script>
+        // URL de la imagen de fondo
+        const bgImageUrl = 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80';
+        document.getElementById('bg-url').textContent = bgImageUrl;
+
+        // Función para manejar el contador usando localStorage
+        function actualizarContador() {
+            let visitas = localStorage.getItem('contadorVisitas');
+            if (!visitas) {
+                visitas = 1;
+            } else {
+                visitas = parseInt(visitas, 10) + 1;
+            }
+            localStorage.setItem('contadorVisitas', visitas);
+            document.getElementById('contador').textContent = `Visitas: ${visitas}`;
+        }
+
+        actualizarContador();
+    </script>
 </body>
 </html>
