@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <title>Mi Página</title>
-  <style>
-    body {
-      background-color: lightblue; 
-      font-family: Arial, sans-serif; 
-    }
-    h1 {
-      font-size: 36px; 
-      color: darkblue; 
-    }
-    p {
-      font-size: 18px; 
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Página con Imagen, Música y Contador Estético</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <h1>Hola, soy Valentin</h1>
-  <p>Bienvenido a mi pagina personal.</p>
+  <div class="container">
+    <img id="main-image" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="Imagen principal" />
+    <audio id="main-audio" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" autoplay loop></audio>
+    <div class="counter-box">
+      <span id="counter">0</span>
+      <span class="counter-label">Visitas</span>
+    </div>
+    <button class="navigate-btn" onclick="window.location.href='https://www.example.com'">
+      Ir a otra página
+    </button>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
