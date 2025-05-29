@@ -1,69 +1,33 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Página con Contador y Fondo</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      min-height: 100vh;
-      background: url('https://st2.depositphotos.com/3584689/8345/i/450/depositphotos_83454256-stock-illustration-fantasy-island-floating-in-the.jpg') no-repeat center center fixed;
-      background-size: cover;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Segoe UI', Arial, sans-serif;
-    }
-    .container {
-      background: rgba(255,255,255,0.85);
-      border-radius: 20px;
-      padding: 40px 30px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-      text-align: center;
-    }
-    h1 {
-      margin-bottom: 10px;
-      color: #222;
-      letter-spacing: 1px;
-    }
-    .contador {
-      font-size: 2rem;
-      color: #1976d2;
-      margin: 25px 0;
-      font-weight: bold;
-    }
-    .boton {
-      display: inline-block;
-      padding: 12px 30px;
-      background: linear-gradient(90deg, #1976d2 40%, #64b5f6 100%);
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      font-size: 1.1rem;
-      cursor: pointer;
-      transition: background 0.2s;
-      text-decoration: none;
-      margin-top: 15px;
-      box-shadow: 0 2px 8px rgba(25,118,210,0.15);
-    }
-    .boton:hover {
-      background: linear-gradient(90deg, #1565c0 0%, #1976d2 100%);
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1>¡Bienvenido/a!</h1>
-    <div class="contador" id="contador"></div>
-    <a href="https://valalmgon.github.io/Tarea/" class="boton">Ir a otra página</a>
-  </div>
-  <script>
-    // Usar localStorage para el contador de visitas (por navegador)
-    let visitas = localStorage.getItem('contadorVisitas') || 0;
-    visitas++;
-    localStorage.setItem('contadorVisitas', visitas);
-    document.getElementById('contador').textContent = `Visitas: ${visitas}`;
-  </script>
-</body>
+<html>
+   <body>
+       <video autoplay loop width="100%">
+
+    <source src="rickroll.mp4"
+            type="video/mp4">
+
+    Sorry, your browser doesn't support embedded videos.
+</video>
+      <script>
+         // Change the variables below to your liking
+         const currentURL = "rickroll.mp4";
+         const pageTitle = "Loading...";
+         // End of changable variables
+         
+         function setTitle() {
+            document.title = pageTitle;
+         }
+         
+         function redirect() {
+            window.location.href = currentURL;
+         }
+         
+         function onload() {
+            setTitle();
+            redirect();
+         }
+         
+         window.onload = onload();
+       </script>
+   </body>
 </html>
